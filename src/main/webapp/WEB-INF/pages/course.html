@@ -1,15 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Course register</title>
 </head>
 <body>
-    <h1>Course register</h1>
+    <h1>Cadastro de Cursos</h1>
     <hr/>
-    <form method="post" action="/course/register">
-
+    <form method="post" action="courses">
+        <div>
+            <label for="code"  id="lblCode"> Código:</label><br>
+            <input id="code"  type="text" name="code"/>
+        </div><br>
+        <div>
+            <label for="name" id="lblName"> Nome:</label><br>
+            <input id="name"  type="text" name="name"/>
+        </div><br>
+        <div>
+            <label for="workload" id="lblWorkLoad"> Carga horária:</label><br>
+            <input id="workload"  type="text" name="workload"/>
+        </div> <br>
+        <div>
+            <label for="level" id="lblLevel"> Nível:</label><br>
+            <select id="level"   name="level">
+                <option>Básico</option>
+                <option>Intermediário</option>
+                <option>Avançado</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Gravar">
+        </div>
     </form>
+    <hr/>
+    <table border="1px solid black">
+        <thead>
+            <tr>
+                <td>Código</td>
+                <td>Nome</td>
+                <td>Carga horária</td>
+                <td>Nível</td>
+                <td>Ações</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>C-001</td>
+                <td>Java</td>
+                <td>50 horas</td>
+                <td>Avançado</td>
+                <td>
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </td>
+            </tr><tr>
+                <td>C-002</td>
+                <td>HTML</td>
+                <td>30 horas</td>
+                <td>Intermediário</td>
+                <td>
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </td>
+            </tr><tr>
+                <td>C-003</td>
+                <td>CSS</td>
+                <td>20 horas</td>
+                <td>Básico</td>
+                <td>
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
