@@ -1,6 +1,7 @@
 package dev.ernandorezende.servlets;
 
 
+import dev.ernandorezende.model.Course;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,9 +23,10 @@ public class CourseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String code = req.getParameter("code");
         String name = req.getParameter("name");
-        String workload = req.getParameter("workLoad");
+        String workload = req.getParameter("workload");
         String level = req.getParameter("level");
-        System.out.println("Código: "+code);
+        var course = new Course(code, name, workload, level);
+        System.out.println("Course:"+ course );
         req.getRequestDispatcher("WEB-INF/pages/course.html").forward(req, resp);
     }
 }
