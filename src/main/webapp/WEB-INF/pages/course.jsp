@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,7 +11,7 @@
     <title>Course register</title>
 </head>
 <body>
-    <div class="container-xl p-5  bg-dark text-white">
+    <div class="container-fluid p-5 h-100 bg-dark text-white">
         <h1>Cadastro de Cursos</h1>
         <hr/>
         <form method="post" action="courses">
@@ -49,6 +51,12 @@
             </tr>
             </thead>
             <tbody>
+            <%
+              var courses = request.getAttribute("courses");
+              for(var course : courses){
+                out.println(course.name());
+              }
+            %>
             <tr>
                 <td>C-001</td>
                 <td>Java</td>
