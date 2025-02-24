@@ -2,21 +2,26 @@ package dev.ernandorezende.servlets;
 
 
 import dev.ernandorezende.model.Course;
+import dev.ernandorezende.service.CourseService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import javax.swing.plaf.IconUIResource;
 import java.io.IOException;
 
 @WebServlet("/courses")
 public class CourseServlet extends HttpServlet {
 
+    private final CourseService courseService = new CourseService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         resp.setContentType("text/html");
-        req.getRequestDispatcher("WEB-INF/pages/course.html").forward(req, resp);
+        req.setAttribute("courses", courseService.courseList());
+        req.getRequestDispatcher("WEB-INF/pages/course.jsp").forward(req, resp);
     }
 
     @Override
@@ -26,7 +31,8 @@ public class CourseServlet extends HttpServlet {
         String workload = req.getParameter("workload");
         String level = req.getParameter("level");
         var course = new Course(code, name, workload, level);
+        courseService.addCourse(course);
         System.out.println("Course:"+ course );
-        req.getRequestDispatcher("WEB-INF/pages/course.html").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/pages/course.jsp").forward(req, resp);
     }
 }
