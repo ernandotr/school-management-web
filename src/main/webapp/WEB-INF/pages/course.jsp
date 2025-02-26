@@ -11,7 +11,7 @@
     <title>Course register</title>
 </head>
 <body>
-    <div class="container-fluid p-5 h-100 bg-dark text-white">
+    <div class="p-5 position-absolute bottom-0 end-0 w-100 h-100 bg-dark text-white">
         <h1>Cadastro de Cursos</h1>
         <hr/>
         <form method="post" action="courses">
@@ -51,20 +51,15 @@
             </tr>
             </thead>
             <tbody>
-            <%
-              var courses = request.getAttribute("courses");
-              for(var course : courses){
-                out.println(course.name());
-              }
-            %>
+
             <tr>
                 <td>C-001</td>
                 <td>Java</td>
                 <td>50 horas</td>
                 <td>Avançado</td>
                 <td>
-                    <button class="btn btn-outline-primary">Editar</button>
-                    <button class="btn btn-outline-danger">Excluir</button>
+                    <button class="btn btn-primary">Editar</button>
+                    <button class="btn btn-danger">Excluir</button>
                 </td>
             </tr><tr>
                 <td>C-002</td>
@@ -72,8 +67,8 @@
                 <td>30 horas</td>
                 <td>Intermediário</td>
                 <td>
-                    <button class="btn btn-outline-primary">Editar</button>
-                    <button class="btn btn-outline-danger">Excluir</button>
+                    <button class="btn btn-primary">Editar</button>
+                    <button class="btn btn-danger">Excluir</button>
                 </td>
             </tr><tr>
                 <td>C-003</td>
@@ -81,8 +76,8 @@
                 <td>20 horas</td>
                 <td>Básico</td>
                 <td>
-                    <button class="btn btn-outline-primary">Editar</button>
-                    <button class="btn btn-outline-danger">Excluir</button>
+                    <button class="btn btn-primary">Editar</button>
+                    <button class="btn btn-danger">Excluir</button>
                 </td>
             </tr>
             </tbody>
