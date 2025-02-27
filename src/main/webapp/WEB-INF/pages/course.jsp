@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dev.ernandorezende.service.CourseService, dev.ernandorezende.model.Course, java.util.List" %>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -39,6 +40,10 @@
                 <button class="btn btn-primary" type="submit">Gravar</button>
             </div>
         </form>
+        <br>
+        <h1>
+
+        </h1>
         <hr/>
         <table class="table table-dark table-striped">
             <thead>
@@ -52,34 +57,20 @@
             </thead>
             <tbody>
 
+            <% for(Course course : CourseService.courseList()) { %>
+
             <tr>
-                <td>C-001</td>
-                <td>Java</td>
-                <td>50 horas</td>
-                <td>Avançado</td>
-                <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-danger">Excluir</button>
-                </td>
-            </tr><tr>
-                <td>C-002</td>
-                <td>HTML</td>
-                <td>30 horas</td>
-                <td>Intermediário</td>
-                <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-danger">Excluir</button>
-                </td>
-            </tr><tr>
-                <td>C-003</td>
-                <td>CSS</td>
-                <td>20 horas</td>
-                <td>Básico</td>
+                <td><%= course.code()%></td>
+                <td><%= course.name()%></td>
+                <td><%= course.workload()%> horas</td>
+                <td><%= course.level()%></td>
                 <td>
                     <button class="btn btn-primary">Editar</button>
                     <button class="btn btn-danger">Excluir</button>
                 </td>
             </tr>
+            <%  } %>
+
             </tbody>
         </table>
     </div>
