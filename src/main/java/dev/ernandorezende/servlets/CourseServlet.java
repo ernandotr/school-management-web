@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import javax.swing.plaf.IconUIResource;
 import java.io.IOException;
 
 @WebServlet("/courses")
@@ -32,7 +31,8 @@ public class CourseServlet extends HttpServlet {
         String level = req.getParameter("level");
         var course = new Course(code, name, workload, level);
         courseService.addCourse(course);
-        System.out.println("Course:"+ course );
+        req.setAttribute("courses", courseService.courseList().stream().toList());
+
         req.getRequestDispatcher("WEB-INF/pages/course.jsp").forward(req, resp);
     }
 }
