@@ -24,7 +24,7 @@ public class CreateCourseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String code = req.getParameter("code");
         String name = req.getParameter("name");
-        String workload = req.getParameter("workload");
+        int workload = Integer.parseInt(req.getParameter("workload"));
         String level = req.getParameter("level");
         var course = new Course(code, name, workload, level);
         courseService.addCourse(course);
