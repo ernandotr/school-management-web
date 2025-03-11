@@ -1,35 +1,19 @@
 package dev.ernandorezende.service;
 
+import dev.ernandorezende.dao.CourseDao;
 import dev.ernandorezende.infra.DbConnection;
 import dev.ernandorezende.model.Course;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.*;
 import java.util.logging.Logger;
 
 public class CourseService {
     private static final Logger logger = Logger.getLogger("CourseService");
-
+    private CourseDao dao = new CourseDao();
 
     public void addCourse(Course course)  {
-        Connection connection = null;
-        try {
-            connection = DbConnection.getConnection();
-        } catch (ClassNotFoundException | SQLException e) {
-            logger.severe(e.getMessage());
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                if(connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                logger.severe(e.getMessage());
-            }
-
-        }
+       dao.save(course);
     }
 
     public List<Course> courseList() {
