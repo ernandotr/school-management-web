@@ -16,7 +16,7 @@ public class CourseService {
     }
 
     public List<Course> courseList() {
-        return dao.FindAll();
+        return dao.findAll();
     }
 
 }

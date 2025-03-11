@@ -41,7 +41,7 @@ public class CourseDao {
         }
     }
 
-    public List<Course> FindAll() {
+    public List<Course> findAll() {
         Connection connection = null;
         List<Course> courses = new ArrayList<>();
         try {
